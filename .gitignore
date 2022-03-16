@@ -1,0 +1,4 @@
+result/*
+*.exe
+template_repo.gotmp
+template_service.gotmp

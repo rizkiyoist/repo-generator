@@ -1,0 +1,27 @@
+package service
+
+type xxxServices struct {
+	db     *gorm.DB
+}
+
+func NewyyyServices(db *gorm.DB, client *elastic.Client) mysqlrepository.yyyRepository {
+	return &xxxServices{db, client}
+}
+
+func (srv *xxxServices) Create(model *mysqlmodels.yyy, tx *gorm.DB) (*mysqlmodels.yyy, error) {
+	db := tx.Create(&model)
+	m := new(mysqlmodels.yyy)
+	if err := db.Error; err != nil {
+		return nil, err
+	}
+
+	byteData, err := json.Marshal(db.Value)
+	if err != nil {
+		return nil, err
+	}
+	if err = json.Unmarshal(byteData, &m); err != nil {
+		return nil, err
+	}
+
+	return m, nil
+}

@@ -1,0 +1,9 @@
+package repo
+
+import (
+	"github.com/jinzhu/gorm"
+)
+
+type xxxRepository interface {
+	Create(model *mysqlmodels.xxx, tx *gorm.DB) (*mysqlmodels.xxx, error)
+}
