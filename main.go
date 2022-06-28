@@ -13,7 +13,7 @@ var matchFirstCap = regexp.MustCompile("(.)([A-Z][a-z]+)")
 var matchAllCap = regexp.MustCompile("([a-z0-9])([A-Z])")
 
 func main() {
-	replace := "MerchantReport"
+	replace := "Something"
 	replaceLow := strings.ToLower(replace[0:1]) + replace[1:]
 	replaceUp := replace
 	replaceTitle := matchFirstCap.ReplaceAllString(replace, "${1}_${2}")

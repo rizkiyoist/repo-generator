@@ -1,0 +1,16 @@
+type Usecase interface{}
+
+type usecase struct {
+	client *elastic.Client
+	db     *gorm.DB
+}
+
+func NewUsecase(
+	client *elastic.Client,
+	db *gorm.DB,
+) Usecase {
+	return &usecase{
+		client,
+		db,
+	}
+}
