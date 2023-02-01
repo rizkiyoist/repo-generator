@@ -37,7 +37,7 @@ func generateFile(replaceLow, replaceUp, title, repo, service string) error {
 	_ = os.Remove("result")
 	os.Mkdir("result", 0777)
 
-	resFileRepo, err := os.Create("result/" + title + "_repository.")
+	resFileRepo, err := os.Create("result/" + title + "_repository.go")
 	if err != nil {
 		fmt.Println(errors.New("failed creating file, " + err.Error()))
 	}
@@ -63,7 +63,7 @@ func generateFile(replaceLow, replaceUp, title, repo, service string) error {
 		fmt.Println(err)
 	}
 	defer fileService.Close()
-	resFileService, err := os.Create("result/" + title + "_services.")
+	resFileService, err := os.Create("result/" + title + "_services.go")
 	if err != nil {
 		fmt.Println(errors.New("failed creating file, " + err.Error()))
 	}
